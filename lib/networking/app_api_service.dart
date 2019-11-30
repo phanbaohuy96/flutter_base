@@ -1,15 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_base/networking/remote_contract.dart';
-import 'package:flutter_base/networking/rest_client.dart';
 import 'package:flutter_base/utils/utils.dart';
 
 class AppApiService {
   final dio = Dio();
-  RestClient client;
   ApiServiceHandler handlerEror;
 
   void create() {
-    client = RestClient(dio, baseUrl: RemoteContract.base_api_layer);
     
     dio.options.headers["X-Client-Id"] = "7E65424BD1DFF4CE17B77D74E4B96EB87137F6E1"; // config your dio headers globally
     dio.options.headers["Content-Type"] = "application/json";

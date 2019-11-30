@@ -1,6 +1,7 @@
 name: flutter_base
 description: A new Flutter project.
 version: 1.0.0+1
+author: baohuy.phan1996@gmail.com
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -21,7 +22,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: any
-  json_serializable: 3.2.2
+  json_serializable: ^3.2.2
   retrofit_generator: ^1.0.2+2
 
 
