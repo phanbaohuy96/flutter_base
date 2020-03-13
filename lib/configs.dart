@@ -1,10 +1,10 @@
-enum BuildFlavor { 
-  mockDataOffline, 
-  mockDataOnline, 
-  devTeam, 
-  development, 
+enum BuildFlavor {
+  mockDataOffline,
+  mockDataOnline,
+  devTeam,
+  development,
   staging,
-  production 
+  production
 }
 
 BuildFlavor buildFlavor = BuildFlavor.development;
@@ -12,6 +12,6 @@ BuildFlavor buildFlavor = BuildFlavor.development;
 String appVersion = "1.0.0+0";
 String appName = "fluter_base";
 String appBaseUrl = "http://google.com";
-bool CHEAT               = true;
-bool FULL_LOG            = false;
-String LOG_TAG           = appName;
+bool cheat = true;
+bool fullLog = false;
+String logTag = appName;

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base/networking/app_api_service.dart';
 
-Type _typeOf<T>() => T;
-
 abstract class BlocBase {
   AppApiService appApiService = AppApiService();
-  
+
   BlocBase() {
     appApiService.create();
   }
@@ -18,7 +16,7 @@ class BlocProvider<T extends BlocBase> extends StatefulWidget {
     Key key,
     @required this.child,
     @required this.bloc,
-  }): super(key: key);
+  }) : super(key: key);
 
   final Widget child;
   final T bloc;
@@ -26,23 +24,24 @@ class BlocProvider<T extends BlocBase> extends StatefulWidget {
   @override
   _BlocProviderState<T> createState() => _BlocProviderState<T>();
 
-  static T of<T extends BlocBase>(BuildContext context){
-    final type = _typeOf<_BlocProviderInherited<T>>();
-    _BlocProviderInherited<T> provider = context.ancestorInheritedElementForWidgetOfExactType(type)?.widget;
+  static T of<T extends BlocBase>(BuildContext context) {
+    final _BlocProviderInherited<T> provider = context
+        .getElementForInheritedWidgetOfExactType<_BlocProviderInherited<T>>()
+        ?.widget;
     return provider?.bloc;
   }
 }
 
-class _BlocProviderState<T extends BlocBase> extends State<BlocProvider<T>>{
+class _BlocProviderState<T extends BlocBase> extends State<BlocProvider<T>> {
   @override
-  void dispose(){
+  void dispose() {
     widget.bloc?.dispose();
     super.dispose();
   }
-  
+
   @override
-  Widget build(BuildContext context){
-    return new _BlocProviderInherited<T>(
+  Widget build(BuildContext context) {
+    return _BlocProviderInherited<T>(
       bloc: widget.bloc,
       child: widget.child,
     );
